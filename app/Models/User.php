@@ -45,4 +45,9 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+    public function resumeDetail()
+    {
+        return $this->hasOne(\App\Models\ResumeDetail::class);
+    }
 }

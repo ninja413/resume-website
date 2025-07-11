@@ -20,7 +20,15 @@
                         Dashboard
                     </a>
                 </li>
+                @auth
+                    <li class="nav-item">
+                        <a class="nav-link {{ request()->routeIs('resume.edit') ? 'active' : '' }}" href="{{ route('resume.edit') }}">
+                            Resume
+                        </a>
+                    </li>
+                @endauth
             </ul>
+            
 
             <!-- Right Side: Authenticated User -->
             @auth
