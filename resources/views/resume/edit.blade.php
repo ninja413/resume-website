@@ -30,21 +30,6 @@
                     @endif
                 </div>
 
-                <!-- Resume Username -->
-                <div class="mb-3">
-                    <label class="form-label">Public Resume Username</label>
-                    <input type="text" name="resume_username"
-                        class="form-control @error('resume_username') is-invalid @enderror"
-                        value="{{ old('resume_username', $resume->resume_username) }}"
-                        pattern="[a-zA-Z0-9\-]+" required>
-                    <div class="form-text">
-                        This will be used in the public link. Only letters, numbers, and dashes allowed.
-                    </div>
-                    @error('resume_username')
-                        <div class="invalid-feedback">{{ $message }}</div>
-                    @enderror
-                </div>
-
                 <!-- Full Name -->
                 <div class="mb-3">
                     <label class="form-label">Full Name</label>
@@ -82,17 +67,10 @@
                         id="is_public"
                         name="is_public"
                         value="1"
-                        {{ empty($resume->resume_username) ? 'disabled' : '' }}
                         {{ old('is_public', $resume->is_public ?? false) ? 'checked' : '' }}>
                     <label class="form-check-label" for="is_public">
                         Make this resume public
                     </label>
-
-                    @if (empty($resume->resume_username))
-                        <div class="form-text text-danger">
-                            Please set a public resume username first.
-                        </div>
-                    @endif
                 </div>
 
                 <button type="submit" class="btn btn-primary">Update Resume</button>

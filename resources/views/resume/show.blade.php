@@ -4,15 +4,15 @@
 <div class="container mt-3">
     
     <div class="mb-3">
-        <a href="{{ route('resume.public.show', ['username' => $resume->resume_username]) }}" class="btn btn-outline-primary me-2">
+        <a href="{{ route('resume.show', ['username' => $username]) }}" class="btn btn-outline-primary me-2">
             Resume Details
         </a>
-        <a href="{{ url('/') }}" class="btn btn-outline-secondary">Blog</a> {{-- Placeholder for future --}}
+        <a href="{{ route('blog.public.index', ['username' => $username]) }}" class="btn btn-outline-secondary">Blog</a>
     </div>
 
     <div class="card shadow">
         <div class="card-body m-5">
-            <h2 class="text-center mb-5">Username: {{ $resume->resume_username }}</h2>
+            <h2 class="text-center mb-5">Username: {{ $username }}</h2>
             <div class="text-center mb-3">
                  @if ($resume->photo)
                     <img src="{{ asset('storage/' . $resume->photo) }}" width="150" class="img-thumbnail mb-3">

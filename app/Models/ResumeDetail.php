@@ -8,7 +8,6 @@ class ResumeDetail extends Model
 {
     protected $fillable = [
         'user_id', 
-        'resume_username',
         'photo', 
         'full_name', 
         'email', 

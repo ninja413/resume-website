@@ -19,6 +19,16 @@
         @csrf
         @method('PATCH')
 
+         <!-- Username -->
+        <div class="mb-3">
+            <label for="username" class="form-label">{{ __('Username') }}</label>
+            <input type="text" name="username" id="username" class="form-control @error('username') is-invalid @enderror"
+                   value="{{ old('username', $user->username) }}" required autocomplete="username">
+            @error('username')
+                <div class="invalid-feedback">{{ $message }}</div>
+            @enderror
+        </div>
+
         <!-- Name -->
         <div class="mb-3">
             <label for="name" class="form-label">{{ __('Name') }}</label>

@@ -27,6 +27,13 @@
                         </a>
                     </li>
                 @endauth
+                @auth
+                    <li class="nav-item">
+                        <a class="nav-link {{ request()->routeIs('blog.index') ? 'active' : '' }}" href="{{ route('blog.index') }}">
+                            Blog
+                        </a>
+                    </li>
+                @endauth
             </ul>
             
 

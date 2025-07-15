@@ -11,16 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('resume_details', function (Blueprint $table) {
+        Schema::create('blogs', function (Blueprint $table) {
             $table->id();
+            $table->string('title');
+            $table->text('content');
+            $table->string('image')->nullable();
+            $table->foreignId('category_id')->constrained('blog_categories');
             $table->foreignId('user_id')->constrained()->onDelete('cascade');
-            $table->string('photo')->nullable();
-            $table->string('full_name');
-            $table->string('email');
-            $table->string('phone');
-            $table->text('address');
-            $table->longText('resume_body')->nullable();
-            $table->boolean('is_public')->default(false); 
             $table->timestamps();
         });
     }
@@ -30,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('resume_details');
+        Schema::dropIfExists('blogs');
     }
 };
