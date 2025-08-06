@@ -24,7 +24,7 @@ class ResumeController extends Controller
     public function edit()
     {
         $resume = auth()->user()->resumeDetail ?? new \App\Models\ResumeDetail();
-        return view('resume.edit', compact('resume','username'));
+        return view('resume.edit', compact('resume'));
     }
 
     public function update(Request $request)
